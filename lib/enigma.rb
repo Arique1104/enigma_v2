@@ -49,94 +49,62 @@ class Enigma
   end
 
 
-    def encrypt(message)
-      set_key
-      message_array = message.downcase.split(//)
-      message_array_of_hashes = []
-      message_array.map do |letter|
-        letter_index = alphabet.index(letter)
-        hash = {letter => letter_index}
-        message_array_of_hashes << hash
-      end
+  def encrypt(message)
+    set_key
+    message_array = message.downcase.split(//)
 
-      # Add or transform values based on offset key
-      count = 0
-      rotation_key_array = []
-      message_array_of_hashes.each do |hash|
-        hash.each do |letter, index|
-          if count == 0
-            if index == nil
-              hash[letter] = letter
-              count += 1
-              rotation_key_array << hash
-            else
-              hash[letter] += @a_key.to_i
-              count += 1
-              rotation_key_array << hash
-            end
-          elsif count == 1
-            if index == nil
-              hash[letter] = letter
-              count += 1
-              rotation_key_array << hash
-            else
-              hash[letter] += @b_key.to_i
-              count += 1
-              rotation_key_array << hash
-            end
-          elsif count == 2
-            if index == nil
-              hash[letter] = letter
-              count += 1
-              rotation_key_array << hash
-            else
-              hash[letter] += @c_key.to_i
-              count += 1
-              rotation_key_array << hash
-            end
-          else count == 3
-            if index == nil
-              hash[letter] = letter
-              count -= 3
-              rotation_key_array << hash
-            else
-              hash[letter] += @d_key.to_i
-              count -= 3
-              rotation_key_array << hash
-            end
-          end
-        end
+    keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
+    result = message_array.map do |letter|
+      letter_index = alphabet.index(letter)
+      if letter_index == nil
+        new_letter = letter
+      else
+        new_letter = alphabet.rotate(letter_index + keys_array[0])[0]
       end
-          encryption_key_array = []
-          rotation_key_array.each do |hash|
-            hash.each do |letter, rotation|
-            if rotation != letter
-              encrypted_letter = alphabet.rotate(rotation)[0]
-              hash[letter] = encrypted_letter
-              encryption_key_array << hash
-            else
-              encryption_key_array << hash
-            end
-          end
-        end
-        encrypted_message = encryption_key_array.flat_map do |hash|
-          hash.values
-        end
-        print_encrypted_message = encrypted_message.join
-
-        encryption_hash = {}
-        encryption_hash[:encryption] = print_encrypted_message
-        encryption_hash[:date] = @date
-        encryption_hash[:key] = @key
-        encryption_hash
+      keys_array.rotate!
+      new_letter
     end
+      encryption_hash(result.join)
+  end
 
+  def encryption_hash(encrypted_message)
+    encryption_hash = {}
+    encryption_hash[:encryption] =
+    encrypted_message
+    encryption_hash[:date] = @date
+    encryption_hash[:key] = @key
+    encryption_hash
+  end
 
-
-
-
-
-
+    def decrypt(d_message, d_date, d_key)
+      d_message_array = d_message.downcase.split(//)
+      decrypt_set_key(d_key)
+      keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
+      result = d_message_array.map do |letter|
+        letter_index = alphabet.index(letter)
+        require "pry"; binding.pry
+        if letter_index == nil
+          new_letter = letter
+        else
+          new_letter = alphabet.rotate(letter_index + keys_array[0])[0]
+        end
+        keys_array.rotate!
+        new_letter
+      end
+        encryption_hash(result.join)
+    end
+    # 
+    # def decrypt_set_key(d_key)
+    #   last_four = get_last_four
+    #   a = @key[0..1]
+    #   b = @key[1..2]
+    #   c = @key[2..3]
+    #   d = @key[3..4]
+    #   @a_key = "#{a.to_i + last_four[0].to_i}"
+    #   @b_key = "#{b.to_i + last_four[1].to_i}"
+    #   @c_key = "#{c.to_i + last_four[2].to_i}"
+    #   @d_key = "#{d.to_i + last_four[3].to_i}"
+    # end
 
 
 end

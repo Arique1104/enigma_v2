@@ -55,7 +55,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt
-
+    skip
+    assert_equal "Hello World!", @enigma.decrypt("vescb cfelk!", "060820", "12345")
   end
 
 end
