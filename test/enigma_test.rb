@@ -24,4 +24,10 @@ class EnigmaTest < Minitest::Test
 
   end
 
+  def test_it_can_generate_random_key
+    
+    assert_equal "12345", @enigma.get_key
+
+  end
+
 end
