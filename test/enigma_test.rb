@@ -25,8 +25,18 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_random_key
-    
+    # skip
     assert_equal "12345", @enigma.get_key
+
+  end
+
+  def test_it_can_generate_initial_offset
+      @enigma.set_key
+      assert_equal "14", @enigma.a_key
+      assert_equal "27", @enigma.b_key
+      assert_equal "34", @enigma.c_key
+      assert_equal "45", @enigma.d_key
+
 
   end
 
