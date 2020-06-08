@@ -4,7 +4,7 @@ require "./lib/enigma"
 class EnigmaTest < Minitest::Test
 
   def setup
-    @enigma = Enigma.new("Hello")
+    @enigma = Enigma.new("Hello World!")
 
   end
 
@@ -24,15 +24,21 @@ class EnigmaTest < Minitest::Test
 
   end
 
+
+
   def test_it_can_generate_random_key
     # skip
-    assert_equal "12345", @enigma.get_key
+    assert_instance_of String, @enigma.get_key
+
+    assert_equal 5, @enigma.get_key.length
 
   end
 
-  def test_it_can_generate_initial_offset
-      @enigma.set_key
+  def test_it_can_generate_final_offset
 
+      @enigma.stubs(:get_key).returns("12345")
+      @enigma.stubs(:get_date).returns("060820")
+      @enigma.set_key
       assert_equal "14", @enigma.a_key
       assert_equal "27", @enigma.b_key
       assert_equal "34", @enigma.c_key
@@ -42,6 +48,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_encrypt_message
 
+    @enigma.stubs(:get_date).returns("060820")
     expected = {:encryption=>"vescb cfelk!", :date=>"060820", :key=>"12345"}
 
     assert_equal expected, @enigma.encrypt("Hello World!")
