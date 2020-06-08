@@ -4,7 +4,7 @@ require "./lib/enigma"
 class EnigmaTest < Minitest::Test
 
   def setup
-    @enigma = Enigma.new
+    @enigma = Enigma.new("Hello")
 
   end
 
@@ -32,11 +32,22 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_initial_offset
       @enigma.set_key
+
       assert_equal "14", @enigma.a_key
       assert_equal "27", @enigma.b_key
       assert_equal "34", @enigma.c_key
       assert_equal "45", @enigma.d_key
 
+  end
+
+  def test_it_can_encrypt_message
+
+    expected = {:encryption=>"vescb cfelk!", :date=>"060820", :key=>"12345"}
+
+    assert_equal expected, @enigma.encrypt("Hello World!")
+  end
+
+  def test_it_can_decrypt
 
   end
 
