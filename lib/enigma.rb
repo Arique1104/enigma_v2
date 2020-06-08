@@ -1,7 +1,11 @@
 class Enigma
- #attr_reader
-  #def initialize(*arg)
+ attr_reader
+  def initialize
 
-  #end
+  end
+
+  def alphabet
+      ("a".."z").to_a << " "
+  end
 
 end
