@@ -11,9 +11,8 @@ class Enigma
               :d_key
   def initialize(message, date = get_date, key = get_key)
     @message = message
-    @date = "060820"
-    @key = "12345"
-    @encrypt = {}
+    @date = date
+    @key = key
   end
 
   def alphabet

@@ -4,7 +4,7 @@ I came back and started over with this project.  I'm proud on how I was able to 
 
 I would've liked to have stronger commit messages and branching in this round, but speed and adaptation were of main importance.  That is why I would like to offer the information for my first attempt at Enigma
 
-(First Attempt at Enigma)[https://github.com/Arique1104/enigma]
+[First Attempt at Enigma](https://github.com/Arique1104/enigma)
 
 The initial design was:
 
@@ -42,18 +42,6 @@ The Keys
 ```
 This was even more of a hot mess but I got some serious learning done.
 
-For example
-
-`.rotate!` will permanently rotate an array which perfectly resolved the problem I was having about each key rotated by `a-d_key`'s different offset numbers.
-
-`% 10000` will give you the last four digits of a long digit number
-
-`@key[0..1]` did you know you could use array-like syntax to get a range within a string?  That was news to me, but when I found it I kept it!
-
-`rand(99999)` is the code I ended up keeping for generating my random key. This isn't one of my favorites, but it is elegant and simple.  It scares me because 1 could also be randomly picked within this key and the right adjustment w/ "0" took too much out of my hands, and made me feel uncomfortable.  But it works, I have to trust it'll work.
-
-`.split(//)` became an all-time favorite for me in this project!
-
 In this final iteration of my project, the design was simpler:
 
 ```ruby
@@ -69,7 +57,37 @@ With the Enigma#Encrypt taking me the longest to learn and refactor.
 
 That is one of my proudest wins in this project.
 
+
+CODE LEARNINGS
+
+`.rotate!` will permanently rotate an array which perfectly resolved the problem I was having about each key rotated by `a-d_key`'s different offset numbers.
+
+`% 10000` will give you the last four digits of a long digit number
+
+`@key[0..1]` did you know you could use array-like syntax to get a range within a string?  That was news to me, but when I found it I kept it!
+
+`rand(99999)` is the code I ended up keeping for generating my random key. This isn't one of my favorites, but it is elegant and simple.  It scares me because 1 could also be randomly picked within this key and the right adjustment w/ "0" took too much out of my hands, and made me feel uncomfortable.  But it works, I have to trust it'll work.
+
+`.split(//)` became an all-time favorite for me in this project!
+
+
 ## Future Iterations
+`key - failure`
+- I really struggled to find documentation to help me figure out this bug:
+```ruby
+3) Failure:
+EnigmaTest#test_it_has_attributes [test/enigma_test.rb:22]:
+--- expected
++++ actual
+@@ -1 +1,3 @@
+-5
++# encoding: US-ASCII
++#    valid: true
++"89553"
+```
+- Aside from the error of NOT figuring out mocks and stubs, the "encoding:US-ASCII..." is a bug I could not figure out how to get rid of.
+
+
 `mocks and stubs`
 - I am not where I want to be in my understanding and execution of mocks and stubs.  I have some tests that will consistently fail because of working random code and changing date.  Mocks and stubs would've fixed this, but I couldn't get it to work properly.  I am not comprehending the object versus result versus mock versus stub dynamic.
 
