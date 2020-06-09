@@ -1,5 +1,32 @@
 # enigma_v2
 
+## Rubric Self-Assessment
+
+__Functionality - 2__
+"One of the following are not successfully implemented: Eniga#encrypt, Enigma#decrypt, command line interfaces"
+- My decrypt interface does not work.
+
+__OOP - 3__
+"Project is broken into logical components that are appropriately encapsulated. No classes are unreasonably small or large, or contain knowledge/information/behavior that they shouldn’t know about. Student can articulate the single responsibilities of the various components"
+- Part of starting over and refactoring into smaller components has everything to do with OOP.
+- Although in this version I only have one file (enigma.rb) I think it's overall functionality and effectiveness speaks to my ability to problem solve and slim down from not knowing to knowing.
+
+__Ruby Conventions and Mechanics - 3__
+"Code is mostly properly indented, spaced, and lines are not excessively long. Class, method, variable, and file names follow convention. Some enumerables/data structures chosen are the most efficient tool for a given job, and students can speak as to why those enumerables/data structures were chosen. At least one hash is implemented in a way that makes logical sense."
+
+__Test Driven Development 3__
+"Every method is tested at both the unit and integration level, and completely verify expected behavior (i.e., if a single method does 3 things, all 3 things are explicitly tested). Obvious edge cases are addressed. git history demonstrates students are writing tests before implementation code. Test coverage metrics show coverage at 99% or greater."
+- This is better shown on my initial enigma project, and while it is weak here, it's mostly because this was my way of refactoring.  Everything I wrote was tested, each line meticulously.  And even if the 100% coverage of Simplecov doesn't prove that, my prior version definitely depicts it.  I go line by line on the test, in pry, on my code.
+
+__Version Control 4__
+"At least 30 commits. Most pull requests include related and logical chunks of functionality, and are named and documented to clearly communicate the purpose of the pull request. No more than 3 commits include multiple pieces of functionality."
+
+- Again, the fatigue and need to reach functionality doesn't showcase well for my project I am submitting, however, this is a case where my prior project can showcase why I'm deserving of a 4.
+
+Enigma v2 = ~20 commits & 3 branches
+Enigma = 105 commits & 11 branches
+
+## What I wrote before I realized there was a self-assessment required: 
 I came back and started over with this project.  I'm proud on how I was able to slim my methods down and learned some pretty awesome features.
 
 I would've liked to have stronger commit messages and branching in this round, but speed and adaptation were of main importance.  That is why I would like to offer the information for my first attempt at Enigma
