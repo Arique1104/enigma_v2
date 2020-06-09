@@ -5,6 +5,11 @@ I came back and started over with this project.  I'm proud on how I was able to 
 I would've liked to have stronger commit messages and branching in this round, but speed and adaptation were of main importance.  That is why I would like to offer the information for my first attempt at Enigma
 
 [First Attempt at Enigma](https://github.com/Arique1104/enigma)
+- 105 + commits
+- 11 branches
+
+I found that in reconfiguring into this new Enigma, the commits were fewer and so were the number of branches. I think that is because I was more focused this second round, clearer about where I had been and where I needed to go.  However, the result is an appearance of not having enough commits or useful branches.
+
 
 The initial design was:
 
