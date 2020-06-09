@@ -1,0 +1,1 @@
+{:encryption=>"vescb cfelk!\n", :date=>"060820", :key=>"12345"}
