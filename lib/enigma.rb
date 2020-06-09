@@ -4,11 +4,11 @@ class Enigma
  attr_reader  :message,
               :date,
               :key,
-              :encrypt,
               :a_key,
               :b_key,
               :c_key,
               :d_key
+              
   def initialize(message, date = get_date, key = get_key)
     @message = message
     @date = date
@@ -29,7 +29,6 @@ class Enigma
   end
 
   def get_last_four
-    # int_date = get_date.to_i
     int_date = @date.to_i
     sq_date = int_date * int_date
     last_four = "#{sq_date % 10000}"
@@ -91,7 +90,7 @@ class Enigma
       end
         encryption_hash(result.join)
     end
-    #
+
     def decrypt_set_key(decrypt_key, decrypt_date)
       @decrypt_key = decrypt_key
       @decrypt_date = decrypt_date
@@ -107,7 +106,6 @@ class Enigma
     end
 
     def decrypt_get_last_four
-      # int_date = get_date.to_i
       int_date = @decrypt_date.to_i
       sq_date = int_date * int_date
       last_four = "#{sq_date % 10000}"
