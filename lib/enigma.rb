@@ -68,21 +68,20 @@ class Enigma
   end
 
   def encryption_hash(encrypted_message)
-    encryption_hash = {}
-    encryption_hash[:encryption] =
+    encrypted = {}
+    encrypted[:encryption] =
     encrypted_message
-    encryption_hash[:date] = @date
-    encryption_hash[:key] = @key
-    encryption_hash
+    encrypted[:date] = @date
+    encrypted[:key] = @key
+    encrypted
   end
 
-    def decrypt(d_message, d_date, d_key)
+    def decrypt(d_message, decrypt_date, decrypt_key)
       d_message_array = d_message.downcase.split(//)
-      decrypt_set_key(d_key)
-      keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
+      decrypt_set_key(decrypt_key, decrypt_date)
+      keys_array = [@decrypt_a_key.to_i, @decrypt_b_key.to_i, @decrypt_c_key.to_i, @decrypt_d_key.to_i]
       result = d_message_array.map do |letter|
         letter_index = alphabet.index(letter)
-        require "pry"; binding.pry
         if letter_index == nil
           new_letter = letter
         else
@@ -93,18 +92,27 @@ class Enigma
       end
         encryption_hash(result.join)
     end
-    # 
-    # def decrypt_set_key(d_key)
-    #   last_four = get_last_four
-    #   a = @key[0..1]
-    #   b = @key[1..2]
-    #   c = @key[2..3]
-    #   d = @key[3..4]
-    #   @a_key = "#{a.to_i + last_four[0].to_i}"
-    #   @b_key = "#{b.to_i + last_four[1].to_i}"
-    #   @c_key = "#{c.to_i + last_four[2].to_i}"
-    #   @d_key = "#{d.to_i + last_four[3].to_i}"
-    # end
+    #
+    def decrypt_set_key(decrypt_key, decrypt_date)
+      @decrypt_key = decrypt_key
+      @decrypt_date = decrypt_date
+      decrypt_last_four = decrypt_get_last_four
+      a = @decrypt_key[0..1]
+      b = @decrypt_key[1..2]
+      c = @decrypt_key[2..3]
+      d = @decrypt_key[3..4]
+      @decrypt_a_key = "#{(-a.to_i) + (-decrypt_last_four[0].to_i)}"
+      @decrypt_b_key = "#{(-b.to_i) + (-decrypt_last_four[1].to_i)}"
+      @decrypt_c_key = "#{(-c.to_i) + (-decrypt_last_four[2].to_i)}"
+      @decrypt_d_key = "#{(-d.to_i) + (-decrypt_last_four[3].to_i)}"
+    end
+
+    def decrypt_get_last_four
+      # int_date = get_date.to_i
+      int_date = @decrypt_date.to_i
+      sq_date = int_date * int_date
+      last_four = "#{sq_date % 10000}"
+    end
 
 
 end

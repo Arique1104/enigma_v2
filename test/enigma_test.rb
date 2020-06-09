@@ -13,7 +13,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    skip
+    # skip
   end
 
   def test_it_has_alphabet_array
@@ -55,8 +55,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt
-    skip
-    assert_equal "Hello World!", @enigma.decrypt("vescb cfelk!", "060820", "12345")
+    expected = {:encryption=>"hello world!", :date=>"060820", :key=>"12345"}
+    assert_equal expected, @enigma.decrypt("vescb cfelk!", "060820", "12345")
   end
 
 end
