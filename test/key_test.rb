@@ -23,7 +23,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_sparse_correct_keys
-    # skip
     assert_equal 4, @key.get_keys.count
   end
 

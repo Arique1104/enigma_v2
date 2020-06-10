@@ -1,24 +1,20 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/ariqueaguilar/turing/mod_1/enigma_v2/lib/key.rb": {
+      "/Users/ariqueaguilar/turing/mod_1/enigma_v2/lib/offset.rb": {
         "lines": [
           1,
-          1,
-          1,
-          5,
-          null,
           null,
           1,
-          7,
+          1,
+          1,
+          3,
+          null,
           null,
           null,
           1,
-          9,
-          9,
-          36,
-          null,
-          9,
+          3,
+          3,
           null,
           null,
           1,
@@ -27,7 +23,18 @@
           2,
           2,
           2,
-          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
           null,
           null,
           null,
@@ -35,6 +42,6 @@
         ]
       }
     },
-    "timestamp": 1591816215
+    "timestamp": 1591822872
   }
 }

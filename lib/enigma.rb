@@ -13,18 +13,11 @@ class Enigma
       ("a".."z").to_a << " "
   end
 
-  def get_date
-    now = Time.now
-    now_formatted = now.strftime("%m%d%y")
-  end
 
 
 
-  def get_last_four
-    int_date = @date.to_i
-    sq_date = int_date * int_date
-    last_four = "#{sq_date % 10000}"
-  end
+
+
 
   def set_key
     last_four = get_last_four
