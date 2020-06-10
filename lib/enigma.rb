@@ -1,5 +1,3 @@
-require 'date'
-
 class Enigma
  attr_reader
 
