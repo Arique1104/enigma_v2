@@ -13,10 +13,7 @@ class Enigma
       ("a".."z").to_a << " "
   end
 
-  def get_date
-    now = Time.now
-    now_formatted = now.strftime("%m%d%y")
-  end
+
 
 
 

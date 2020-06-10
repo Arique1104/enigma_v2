@@ -2,8 +2,8 @@ require "date"
 
 class Offset
  #attr_reader
-  #def initialize(*arg)
+  def initialize
 
-  #end
+  end
 
 end
