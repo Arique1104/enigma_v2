@@ -21,11 +21,17 @@ class Enigma
 
 
   def encrypt(message, key = Key.new, offset = Offset.new)
-    set_final_key(key, offset)
-    
-    message_array = message.downcase.split(//)
+    key_string = key.assigned_random_numbers
+    date =
+    encryption_rotation_hash = set_final_key(key, offset)
 
-    keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
+    message_array = message.downcase.split(//)
+    encrypt_message = []
+
+  keys_array = encryption_rotation_hash.values
+
+
+
     result = message_array.map do |letter|
       letter_index = alphabet.index(letter)
       if letter_index == nil
@@ -36,15 +42,16 @@ class Enigma
       keys_array.rotate!
       new_letter
     end
-      encryption_hash(result.join)
+    encryption_hash(result.join, key_string)
   end
 
-  def encryption_hash(encrypted_message)
+
+  def encryption_hash(encrypted_message, key_string)
     encrypted = {}
     encrypted[:encryption] =
     encrypted_message
-    encrypted[:date] = @date
-    encrypted[:key] = @key
+    encrypted[:date] = Time.now.strftime("%m%d%y")
+    encrypted[:key] = key_string
     encrypted
   end
 
