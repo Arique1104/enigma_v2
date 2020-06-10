@@ -34,7 +34,7 @@ class KeyTest < Minitest::Test
           :c_key => 34,
           :d_key => 45
         }
-        assert_equal expected, @key.set_key
+        assert_equal expected, @key.set_keys
 
   end
 
