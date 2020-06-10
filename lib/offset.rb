@@ -20,4 +20,16 @@ class Offset
     last_four
   end
 
+  def set_keys
+    get_offsets = get_last_four.split(//)
+    assigned_offsets = Hash.new
+    assigned_offsets[:a_key] = get_offsets[0].to_i
+    assigned_offsets[:b_key] = get_offsets[1].to_i
+    assigned_offsets[:c_key] = get_offsets[2].to_i
+    assigned_offsets[:d_key] = get_offsets[3].to_i
+    assigned_offsets
+  end
+
+
+
 end

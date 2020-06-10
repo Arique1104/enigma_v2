@@ -21,4 +21,9 @@ class OffsetTest < Minitest::Test
     assert_equal "0400", @offset.get_last_four
   end
 
+  def test_it_can_generate_key_hash
+    assert_instance_of Hash, @offset.set_keys
+    assert_equal 4, @offset.set_keys.count
+  end
+
 end
