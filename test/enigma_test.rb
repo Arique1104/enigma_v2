@@ -24,16 +24,12 @@ class EnigmaTest < Minitest::Test
   end
 
 
-
-
-
-
   def test_it_can_set_final_keys
     assert_equal 4, @enigma.set_final_key(Key.new, Offset.new).length
 
   end
   def test_it_can_encrypt_message
-    skip
+
     expected = {:encryption=>"vescb cfelk!", :date=>"061020", :key=>"12345"}
 
     assert_equal expected, @enigma.encrypt("Hello World!")

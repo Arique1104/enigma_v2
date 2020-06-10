@@ -20,8 +20,9 @@ class Enigma
   end
 
 
-  def encrypt(message)
-
+  def encrypt(message, key = Key.new, offset = Offset.new)
+    set_final_key(key, offset)
+    
     message_array = message.downcase.split(//)
 
     keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
