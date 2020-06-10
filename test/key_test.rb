@@ -11,7 +11,11 @@ class KeyTest < Minitest::Test
     assert_instance_of Key, @key
   end
 
-  #def test_it_has_attributes
-  #end
+  def test_it_can_generate_random_key
+    assert_instance_of String, @key.get_key
+
+    assert_equal 5, @key.get_key.length
+
+  end
 
 end
