@@ -17,8 +17,9 @@ class Key
   end
 
   def set_keys
-    assign_to_keys = Hash.new
+    assigned_keys = Hash.new
     get_keys
+    key_letters = ("A".."D").to_a
     require "pry"; binding.pry
   end
 
