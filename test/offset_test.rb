@@ -17,8 +17,8 @@ class OffsetTest < Minitest::Test
 
   end
 
-  def test_it_can_square_date
-    assert_equal 0, @offset.square_date
+  def test_it_can_get_last_four_of_squared_date
+    assert_equal 0, @offset.last_four
   end
 
 end
