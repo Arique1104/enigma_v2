@@ -8,7 +8,11 @@ class Key
   end
 
   def set_keys
-    random_numbers
+    a_thru_d_keys_array = []
+      random_numbers.chars.each_cons(2).each do |num1, num2|
+      require "pry"; binding.pry
+      end
+
 
 
   end
