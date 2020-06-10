@@ -15,3 +15,8 @@ class OffsetTest < Minitest::Test
   #end
 
 end
+
+# def get_date
+#   now = Time.now
+#   now_formatted = now.strftime("%m%d%y")
+# end
