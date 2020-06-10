@@ -9,7 +9,14 @@ class Enigma
   def set_final_key(key, offset)
     final = Hash.new
     final[:a_key] = key.set_keys[:a_key].to_i + offset.set_keys[:a_key].to_i
-require "pry"; binding.pry
+
+    final[:b_key] = key.set_keys[:b_key].to_i + offset.set_keys[:b_key].to_i
+
+    final[:c_key] = key.set_keys[:c_key].to_i + offset.set_keys[:c_key].to_i
+
+    final[:d_key] = key.set_keys[:d_key].to_i + offset.set_keys[:d_key].to_i
+
+    final
   end
 
 
