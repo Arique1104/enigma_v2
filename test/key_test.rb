@@ -12,7 +12,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_equal [], @key.assigned_random_numbers
+    assert_equal 5, @key.assigned_random_numbers.length
   end
 
   def test_it_can_generate_random_key
@@ -23,7 +23,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_sparse_correct_keys
-    skip
+    # skip
     assert_equal 4, @key.set_keys.length
   end
 
