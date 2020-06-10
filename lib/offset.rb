@@ -14,9 +14,10 @@ class Offset
 
   def get_last_four
     int_date = @date.to_i
-    sq_date.to_s = int_date * int_date
-    require "pry"; binding.pry
-    last_four = "#{sq_date % 10000}"
+    sq_date = int_date * int_date
+    string_sq_date = sq_date.to_s
+    last_four = string_sq_date[-4..-1]
+    last_four
   end
 
 end
