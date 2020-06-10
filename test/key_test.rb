@@ -28,13 +28,8 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_generate_key_hash
-        expected = {
-          :a_key => "12",
-          :b_key => "23",
-          :c_key => "34",
-          :d_key => "45"
-        }
-        assert_equal expected, @key.set_keys
+    assert_instance_of Hash, @key.set_keys
+    assert_equal 4, @key.set_keys.count
 
   end
 
