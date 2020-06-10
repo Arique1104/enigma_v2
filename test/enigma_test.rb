@@ -32,12 +32,7 @@ class EnigmaTest < Minitest::Test
 
 
 
-  def test_it_can_generate_random_key
-    assert_instance_of String, @enigma.get_key
 
-    assert_equal 5, @enigma.get_key.length
-
-  end
 
   def test_it_can_generate_final_offset
 
