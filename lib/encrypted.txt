@@ -1,1 +1,1 @@
-{:encryption=>"vescb cfelk!\n", :date=>"060820", :key=>"12345"}
+{:encryption=>"uavaawygyxxta!", :date=>"060920", :key=>"34643"}

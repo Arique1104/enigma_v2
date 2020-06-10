@@ -1,14 +1,8 @@
 require 'date'
 
 class Enigma
- attr_reader  :message,
-              :date,
-              :key,
-              :a_key,
-              :b_key,
-              :c_key,
-              :d_key
-              
+ attr_reader  
+
   def initialize(message, date = get_date, key = get_key)
     @message = message
     @date = date
