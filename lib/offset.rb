@@ -20,4 +20,6 @@ class Offset
     last_four
   end
 
+
+
 end
