@@ -1,51 +1,37 @@
-require 'date'
-
 class Enigma
- attr_reader  
+ attr_reader  :alphabet
 
-  def initialize(message, date = get_date, key = get_key)
-    @message = message
-    @date = date
-    @key = key
-  end
-
-  def alphabet
-      ("a".."z").to_a << " "
-  end
-
-  def get_date
-    now = Time.now
-    now_formatted = now.strftime("%m%d%y")
-  end
-
-  def get_key
-    rand(99999).to_s.rjust(5, "0")
-  end
-
-  def get_last_four
-    int_date = @date.to_i
-    sq_date = int_date * int_date
-    last_four = "#{sq_date % 10000}"
-  end
-
-  def set_key
-    last_four = get_last_four
-    a = @key[0..1]
-    b = @key[1..2]
-    c = @key[2..3]
-    d = @key[3..4]
-    @a_key = "#{a.to_i + last_four[0].to_i}"
-    @b_key = "#{b.to_i + last_four[1].to_i}"
-    @c_key = "#{c.to_i + last_four[2].to_i}"
-    @d_key = "#{d.to_i + last_four[3].to_i}"
+  def initialize
+    @alphabet = ("a".."z").to_a << " "
   end
 
 
-  def encrypt(message)
-    set_key
+  def set_final_key(key, offset)
+    final = Hash.new
+    final[:a_key] = key.set_keys[:a_key].to_i + offset.set_keys[:a_key].to_i
+
+    final[:b_key] = key.set_keys[:b_key].to_i + offset.set_keys[:b_key].to_i
+
+    final[:c_key] = key.set_keys[:c_key].to_i + offset.set_keys[:c_key].to_i
+
+    final[:d_key] = key.set_keys[:d_key].to_i + offset.set_keys[:d_key].to_i
+
+    final
+  end
+
+
+  def encrypt(message, key = Key.new, offset = Offset.new)
+    key_string = key.assigned_random_numbers
+    date =
+    encryption_rotation_hash = set_final_key(key, offset)
+
     message_array = message.downcase.split(//)
+    encrypt_message = []
 
-    keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]
+  keys_array = encryption_rotation_hash.values
+
+
+
     result = message_array.map do |letter|
       letter_index = alphabet.index(letter)
       if letter_index == nil
@@ -56,15 +42,16 @@ class Enigma
       keys_array.rotate!
       new_letter
     end
-      encryption_hash(result.join)
+    encryption_hash(result.join, key_string)
   end
 
-  def encryption_hash(encrypted_message)
+
+  def encryption_hash(encrypted_message, key_string)
     encrypted = {}
     encrypted[:encryption] =
     encrypted_message
-    encrypted[:date] = @date
-    encrypted[:key] = @key
+    encrypted[:date] = Time.now.strftime("%m%d%y")
+    encrypted[:key] = key_string
     encrypted
   end
 
