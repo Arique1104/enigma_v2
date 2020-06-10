@@ -24,7 +24,7 @@ class KeyTest < Minitest::Test
 
   def test_it_can_sparse_correct_keys
     # skip
-    assert_equal 4, @key.set_keys.length
+    assert_equal 4, @key.set_keys.count
   end
 
   def test_it_can_generate_key_hash

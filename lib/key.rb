@@ -9,12 +9,11 @@ class Key
   end
 
   def set_keys
-    @assigned_random_numbers
-    require "pry"; binding.pry
     combined_keys = []
       @assigned_random_numbers.chars.each_cons(2).each do |num1, num2|
-        require "pry"; binding.pry
+        combined_keys << num1 + num2
       end
+      combined_keys
   end
 
 
