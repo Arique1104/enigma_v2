@@ -6,21 +6,15 @@ class Enigma
   end
 
 
-  def set_key
-    last_four = get_last_four
-    a = @key[0..1]
-    b = @key[1..2]
-    c = @key[2..3]
-    d = @key[3..4]
-    @a_key = "#{a.to_i + last_four[0].to_i}"
-    @b_key = "#{b.to_i + last_four[1].to_i}"
-    @c_key = "#{c.to_i + last_four[2].to_i}"
-    @d_key = "#{d.to_i + last_four[3].to_i}"
+  def set_final_key(key, offset)
+    final = Hash.new
+    final[:a_key] = key.set_keys[:a_key].to_i + offset.set_keys[:a_key].to_i
+require "pry"; binding.pry
   end
 
 
   def encrypt(message)
-    set_key
+
     message_array = message.downcase.split(//)
 
     keys_array = [@a_key.to_i, @b_key.to_i, @c_key.to_i, @d_key.to_i]

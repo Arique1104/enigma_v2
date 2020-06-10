@@ -1,5 +1,7 @@
 require "./test/test_helper"
 require "./lib/enigma"
+require "./lib/offset"
+require "./lib/key"
 
 class EnigmaTest < Minitest::Test
 
@@ -26,12 +28,13 @@ class EnigmaTest < Minitest::Test
 
 
 
+  def test_it_can_set_final_keys
+    assert_equal 4, @enigma.set_final_key(Key.new, Offset.new).length
 
+  end
   def test_it_can_encrypt_message
     skip
-
-    @enigma.stubs(:get_date).returns("060820")
-    expected = {:encryption=>"vescb cfelk!", :date=>"060920", :key=>"12345"}
+    expected = {:encryption=>"vescb cfelk!", :date=>"061020", :key=>"12345"}
 
     assert_equal expected, @enigma.encrypt("Hello World!")
   end
