@@ -11,12 +11,8 @@ class KeyTest < Minitest::Test
     assert_instance_of Key, @key
   end
 
-  def test_it_can_save_one_random_key
-    key1 = Key.new
-    key2 = Key.new
-
-    expected1 = key1.random_numbers
-    assert_equal
+  def test_it_has_attributes
+    assert_equal [], @key.assigned_random_numbers
   end
 
   def test_it_can_generate_random_key
@@ -27,6 +23,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_sparse_correct_keys
+    skip
     assert_equal 4, @key.set_keys.length
   end
 

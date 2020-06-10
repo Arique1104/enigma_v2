@@ -4,18 +4,16 @@
       "/Users/ariqueaguilar/turing/mod_1/enigma_v2/lib/key.rb": {
         "lines": [
           1,
-          null,
-          null,
+          1,
+          1,
+          5,
           null,
           null,
           1,
-          4,
+          2,
           null,
           null,
-          1,
-          1,
-          1,
-          3,
+          null,
           null,
           null,
           null,
@@ -27,6 +25,6 @@
         ]
       }
     },
-    "timestamp": 1591812313
+    "timestamp": 1591812998
   }
 }
