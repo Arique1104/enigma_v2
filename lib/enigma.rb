@@ -2,17 +2,8 @@ class Enigma
  attr_reader
 
   def initialize
-  
 
   end
-
-  def alphabet
-  end
-
-
-
-
-
 
 
   def set_key
