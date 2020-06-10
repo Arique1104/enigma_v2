@@ -18,4 +18,8 @@ class KeyTest < Minitest::Test
 
   end
 
+  def test_it_can_generate_keys
+
+  end
+
 end
