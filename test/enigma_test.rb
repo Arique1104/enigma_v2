@@ -32,24 +32,9 @@ class EnigmaTest < Minitest::Test
 
 
 
-  def test_it_can_generate_random_key
-    assert_instance_of String, @enigma.get_key
 
-    assert_equal 5, @enigma.get_key.length
 
-  end
 
-  def test_it_can_generate_final_offset
-
-      @enigma.stubs(:get_key).returns("12345")
-      @enigma.stubs(:get_date).returns("060820")
-      @enigma.set_key
-      assert_equal "14", @enigma.a_key
-      assert_equal "27", @enigma.b_key
-      assert_equal "34", @enigma.c_key
-      assert_equal "45", @enigma.d_key
-
-  end
 
   def test_it_can_encrypt_message
 
