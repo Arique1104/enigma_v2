@@ -12,14 +12,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_has_attributes
-
-    assert_instance_of String, @enigma.date
-    assert_equal 6, @enigma.date.length
-
-    assert_instance_of String, @enigma.key
-    assert_equal 5, @enigma.key
-  end
 
   def test_it_has_alphabet_array
 
