@@ -23,7 +23,7 @@ class OffsetTest < Minitest::Test
 
   def test_it_can_generate_key_hash
     assert_instance_of Hash, @offset.set_keys
-    assert_equal 4, @key.set_keys.count
+    assert_equal 4, @offset.set_keys.count
   end
 
 end
