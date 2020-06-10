@@ -3,10 +3,16 @@
     "coverage": {
       "/Users/ariqueaguilar/turing/mod_1/enigma_v2/lib/key.rb": {
         "lines": [
-
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
         ]
       }
     },
-    "timestamp": 1591809698
+    "timestamp": 1591809756
   }
 }
