@@ -1,7 +1,7 @@
 class Key
  attr_reader  :assigned_random_numbers
   def initialize(nums = random_numbers)
-    @assigned_random_numbers = "12345"
+    @assigned_random_numbers = nums
   end
 
   def random_numbers
@@ -18,9 +18,11 @@ class Key
 
   def set_keys
     assigned_keys = Hash.new
-    get_keys
-    key_letters = ("A".."D").to_a
-    require "pry"; binding.pry
+    assigned_keys[:a_key] = get_keys[0]
+    assigned_keys[:b_key] = get_keys[1]
+    assigned_keys[:c_key] = get_keys[2]
+    assigned_keys[:d_key] = get_keys[3]
+    assigned_keys
   end
 
 
