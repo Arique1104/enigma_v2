@@ -7,5 +7,10 @@ class Key
     rand(99999).to_s.rjust(5, "0")
   end
 
+  def set_key
+
+
+  end
+
 
 end

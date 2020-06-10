@@ -18,7 +18,14 @@ class KeyTest < Minitest::Test
 
   end
 
-  def test_it_can_generate_key
+  def test_it_can_generate_key_hash
+        expected = {
+          :a_key => 12,
+          :b_key => 23,
+          :c_key => 34,
+          :d_key => 45
+        }
+        assert_equal expected, @key.set_key
 
   end
 
