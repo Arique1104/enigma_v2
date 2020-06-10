@@ -1,7 +1,7 @@
 require 'date'
 
 class Enigma
- attr_reader  
+ attr_reader
 
   def initialize(message, date = get_date, key = get_key)
     @message = message
@@ -18,9 +18,7 @@ class Enigma
     now_formatted = now.strftime("%m%d%y")
   end
 
-  def get_key
-    rand(99999).to_s.rjust(5, "0")
-  end
+
 
   def get_last_four
     int_date = @date.to_i
