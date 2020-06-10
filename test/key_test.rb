@@ -12,9 +12,9 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_generate_random_key
-    assert_instance_of String, @key.get_key
+    assert_instance_of String, @key.random_numbers
 
-    assert_equal 5, @key.get_key.length
+    assert_equal 5, @key.random_numbers.length
 
   end
 
