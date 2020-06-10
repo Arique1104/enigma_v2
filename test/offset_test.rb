@@ -11,12 +11,8 @@ class OffsetTest < Minitest::Test
     assert_instance_of Offset, @offset
   end
 
-  #def test_it_has_attributes
-  #end
+  def test_it_can_get_date
+    assert_equal "061020", @offset.date
+  end
 
 end
-
-# def get_date
-#   now = Time.now
-#   now_formatted = now.strftime("%m%d%y")
-# end
