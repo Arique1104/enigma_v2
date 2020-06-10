@@ -1,13 +1,12 @@
 class Enigma
  attr_reader
 
-  def initialize(message, date = get_date, key = random_numbers)
-    @date = date
-    @key = key
+  def initialize
+  
+
   end
 
   def alphabet
-      ("a".."z").to_a << " "
   end
 
 
