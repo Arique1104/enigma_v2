@@ -8,7 +8,7 @@ class Key
     rand(99999).to_s.rjust(5, "0")
   end
 
-  def set_keys
+  def get_keys
     combined_keys = []
       @assigned_random_numbers.chars.each_cons(2).each do |num1, num2|
         combined_keys << num1 + num2
