@@ -1,5 +1,5 @@
 class Enigma
- attr_reader
+ attr_reader  :alphabet
 
   def initialize
 
