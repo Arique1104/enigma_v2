@@ -4,7 +4,7 @@ require "./lib/enigma"
 class EnigmaTest < Minitest::Test
 
   def setup
-    @enigma = Enigma.new("Hello World!")
+    @enigma = Enigma.new
 
   end
 
@@ -13,7 +13,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_equal "Hello World!", @enigma.message
 
     assert_instance_of String, @enigma.date
     assert_equal 6, @enigma.date.length

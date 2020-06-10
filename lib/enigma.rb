@@ -2,7 +2,6 @@ class Enigma
  attr_reader
 
   def initialize(message, date = get_date, key = random_numbers)
-    @message = message
     @date = date
     @key = key
   end
