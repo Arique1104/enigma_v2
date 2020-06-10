@@ -12,7 +12,9 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_get_date
-    assert_equal "061020", @offset.date
+    assert_instance_of String, @offset.date
+    assert_equal 6, @offset.date.length
+
   end
 
 end
