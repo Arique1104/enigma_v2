@@ -28,7 +28,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_generate_key_hash
-    skip
         expected = {
           :a_key => 12,
           :b_key => 23,
