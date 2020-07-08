@@ -23,6 +23,7 @@ class Key
     assigned_keys[:c_key] = get_keys[2]
     assigned_keys[:d_key] = get_keys[3]
     assigned_keys
+    require "pry"; binding.pry
   end
 
 

@@ -55,22 +55,30 @@ class Enigma
     encrypted
   end
 
-    def decrypt(d_message, decrypt_date, decrypt_key)
-      d_message_array = d_message.downcase.split(//)
-      decrypt_set_key(decrypt_key, decrypt_date)
-      keys_array = [@decrypt_a_key.to_i, @decrypt_b_key.to_i, @decrypt_c_key.to_i, @decrypt_d_key.to_i]
-      result = d_message_array.map do |letter|
-        letter_index = alphabet.index(letter)
-        if letter_index == nil
-          new_letter = letter
-        else
-          new_letter = alphabet.rotate(letter_index + keys_array[0])[0]
-        end
-        keys_array.rotate!
-        new_letter
+  def decrypt(message, key = Key.new, offset = Offset.new)
+    key_string = key.assigned_random_numbers
+    date =
+    encryption_rotation_hash = set_final_key(key, offset)
+
+    message_array = message.downcase.split(//)
+    encrypt_message = []
+
+  keys_array = encryption_rotation_hash.values
+
+
+
+    result = message_array.map do |letter|
+      letter_index = alphabet.index(letter)
+      if letter_index == nil
+        new_letter = letter
+      else
+        new_letter = alphabet.rotate(letter_index + keys_array(-[0]))[0]
       end
-        encryption_hash(result.join)
+      keys_array.rotate!
+      new_letter
     end
+    encryption_hash(result.join, key_string)
+  end
 
     def decrypt_set_key(decrypt_key, decrypt_date)
       @decrypt_key = decrypt_key
